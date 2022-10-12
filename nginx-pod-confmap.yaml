@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx-pod-confmap
+  name: nginx-pod-confmap
+spec:
+  containers:
+  - image: nginx
+    env:
+    - name: config.txt
+      valueFrom:
+        configMapKeyRef:
+          name: key1
+          key: value1
+    - name: config.txt
+      valueFrom:
+        configMapKeyRef:
+          name: key2
+          key: value2
+    name: nginx-pod-confmap
+    resources: {}
+  dnsPolicy: ClusterFirst
+envFrom:
+   - configMapKeyRef:
+      name: conf-map
+restartPolicy: Never
+status: {}

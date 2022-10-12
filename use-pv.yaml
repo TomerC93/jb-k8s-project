@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: use-pv
+  labels:
+    app: use-pv
+spec:
+  volumes:
+    - name: tomer-stg
+      persistentVolumeClaim:
+        claimName: pvc-1
+  containers:
+  - name: use-pv
+    image: nginx
+    volumeMounts:
+     - mountPath: "/data"
+       name: tomer-stg

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis-storage-tomer
+spec:
+  containers:
+  - name: redis-storage-tomer
+    image: redis:7-alpine
+    volumeMounts:
+    - name: redis-storage
+      mountPath: /data/redis
+  volumes:
+  - name: redis-storage
+    emptyDir: {}

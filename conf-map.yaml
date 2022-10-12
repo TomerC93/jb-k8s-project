@@ -1,0 +1,13 @@
+apiVersion: v1
+data:
+  config.txt: |-
+    key1=value1
+    key2=value2
+    EOF
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2022-09-28T14:56:11Z"
+  name: conf-map
+  namespace: default
+  resourceVersion: "29288"
+  uid: dc489801-912f-470c-b309-d65cf069d16f
